@@ -79,8 +79,8 @@ a {
 }
 
 header {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
     padding: 1rem;
     background-color: var(--primary-color);
@@ -101,7 +101,8 @@ header {
 header h1 {
     font-size: 1.5rem;
     font-weight: 600;
-    text-align: center;
+    margin: 0;
+    text-align: left;
 }
 
 main {
@@ -376,8 +377,8 @@ footer {
 /* Action Buttons */
 .actions {
     display: flex;
+    gap: 1rem;
     justify-content: flex-end;
-    gap: 0.5rem;
 }
 
 .action-button {
@@ -587,6 +588,10 @@ footer {
         max-width: 90%;
     }
     
+    header {
+        padding: 0.75rem;
+    }
+    
     header h1 {
         font-size: 1.25rem;
     }
@@ -605,6 +610,8 @@ footer {
 
 @media (max-width: 480px) {
     header {
+        flex-direction: column;
+        gap: 0.5rem;
         padding: 0.75rem;
     }
     
