@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>n8n RAG Chat</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <meta name="description" content="Chat interface for n8n RAG AI assistant">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>n8n RAG Assistant</h1>
+            <div class="actions">
+                <button id="docs-button" class="action-button" title="Show available documents">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M3 4h18v16H3V4zm2 2v12h14V6H5zm2 2h10v2H7V8zm0 4h10v2H7v-2z" fill="currentColor"/></svg>
+                    <span>Documents</span>
+                </button>
+                <button id="reset-button" class="action-button" title="Reset chat">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M5.463 4.433A9.961 9.961 0 0 1 12 2c5.523 0 10 4.477 10 10 0 2.136-.67 4.116-1.81 5.74L17 12h3A8 8 0 0 0 6.46 6.228l-.997-1.795zm13.074 15.134A9.961 9.961 0 0 1 12 22C6.477 22 2 17.523 2 12c0-2.136.67-4.116 1.81-5.74L7 12H4a8 8 0 0 0 13.54 5.772l.997 1.795z" fill="currentColor"/></svg>
+                    <span>Reset</span>
+                </button>
+            </div>
+        </header>
+
+        <main>
+            <div id="chat-container">
+                <div id="messages">
+                    <div class="message system">
+                        <div class="message-content">
+                            <p>Hello! I'm your document assistant. Ask me anything about the documents in the database.</p>
+                        </div>
+                    </div>
+                    <!-- Messages will be added here dynamically -->
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <form id="chat-form">
+                <input 
+                    type="text" 
+                    id="user-input" 
+                    placeholder="Type your message..." 
+                    aria-label="Type your message"
+                    autocomplete="off"
+                >
+                <button type="submit" id="send-button" aria-label="Send message">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M3 13h6v-2H3V1.846a.5.5 0 0 1 .741-.438l18.462 10.154a.5.5 0 0 1 0 .876L3.741 22.592A.5.5 0 0 1 3 22.154V13z" fill="currentColor"/></svg>
+                </button>
+            </form>
+        </footer>
+    </div>
+
+    <!-- Document list modal -->
+    <div id="docs-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Available Documents</h2>
+                <button id="close-modal" aria-label="Close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="docs-list">
+                    <!-- Document list will be populated here -->
+                    <p class="loading-text">Loading documents...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked@7.0.5/marked.min.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html> 
